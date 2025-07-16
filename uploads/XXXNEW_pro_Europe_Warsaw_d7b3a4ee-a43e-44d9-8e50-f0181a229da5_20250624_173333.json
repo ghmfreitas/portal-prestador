@@ -1,0 +1,86 @@
+{
+  "blocks": [
+    {
+      "startTime": "2025-06-24T03:00:00.000Z",
+      "endTime": "2025-06-24T08:00:00.000Z",
+      "actualEndTime": "2025-06-24T05:27:42.862Z",
+      "perModelStats": {
+        "claude-opus-4-20250514": {
+          "tokenCounts": {
+            "inputTokens": 147,
+            "outputTokens": 7031,
+            "cacheCreationTokens": 294699,
+            "cacheReadTokens": 2825317,
+            "totalTokens": 7178
+          },
+          "costUSD": 10.293112,
+          "entriesCount": 94
+        },
+        "claude-sonnet-4-20250514": {
+          "tokenCounts": {
+            "inputTokens": 24,
+            "outputTokens": 142,
+            "cacheCreationTokens": 67563,
+            "cacheReadTokens": 321812,
+            "totalTokens": 166
+          },
+          "costUSD": 0.352107,
+          "entriesCount": 6
+        }
+      },
+      "totalTokens": 36056,
+      "totalTokensOld": 7344,
+      "costUSD": 10.645219,
+      "entries": 100,
+      "limits": [
+        {
+          "type": "opus_limit",
+          "timestamp": "2025-06-24T05:26:39.110Z",
+          "content": "Claude Opus 4 limit reached, now using Sonnet 4",
+          "resetTime": null
+        }
+      ]
+    },
+    {
+      "startTime": "2025-06-24T17:00:00.000Z",
+      "endTime": "2025-06-24T22:00:00.000Z",
+      "actualEndTime": "2025-06-24T20:33:30.679Z",
+      "perModelStats": {
+        "claude-opus-4-20250514": {
+          "tokenCounts": {
+            "inputTokens": 88,
+            "outputTokens": 4686,
+            "cacheCreationTokens": 246875,
+            "cacheReadTokens": 1503464,
+            "totalTokens": 4774
+          },
+          "costUSD": 7.236872,
+          "entriesCount": 41
+        },
+        "claude-sonnet-4-20250514": {
+          "tokenCounts": {
+            "inputTokens": 272,
+            "outputTokens": 4431,
+            "cacheCreationTokens": 340429,
+            "cacheReadTokens": 3038943,
+            "totalTokens": 4703
+          },
+          "costUSD": 2.255573,
+          "entriesCount": 66
+        }
+      },
+      "totalTokens": 28573,
+      "totalTokensOld": 9477,
+      "costUSD": 9.492445,
+      "entries": 107,
+      "limits": [
+        {
+          "type": "opus_limit",
+          "timestamp": "2025-06-24T19:28:34.335Z",
+          "content": "Claude Opus 4 limit reached, now using Sonnet 4",
+          "resetTime": null
+        }
+      ]
+    }
+  ]
+}

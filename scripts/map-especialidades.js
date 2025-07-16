@@ -1,0 +1,53 @@
+const fs = require('fs');
+
+// Ler dados filtrados
+const procedimentos = JSON.parse(fs.readFileSync('documents/procedimentos_filtrados.json', 'utf8'));
+
+// Mapear especialidades únicas com suas descrições
+const especialidadesUnicas = {};
+
+procedimentos.forEach(proc => {
+    const codigo = proc.especialidade;
+    const descricao = proc.extra_col_4 || 'NÃO INFORMADA';
+    
+    if (!especialidadesUnicas[codigo]) {
+        especialidadesUnicas[codigo] = {
+            codigo: codigo,
+            descricao: descricao,
+            count: 0
+        };
+    }
+    especialidadesUnicas[codigo].count++;
+});
+
+console.log('=== MAPEAMENTO DE ESPECIALIDADES ===');
+Object.values(especialidadesUnicas).forEach(esp => {
+    console.log(`Código ${esp.codigo}: ${esp.descricao} (${esp.count} procedimentos)`);
+});
+
+// Criar mapeamento completo
+const especialidadesCompletas = {
+    1: { nome: 'NÃO INFORMADA', codigo: 'NAO_INF', extra_rol: false },
+    2: { nome: 'CIRURGIA', codigo: 'CIRURGIA', extra_rol: false },
+    3: { nome: 'DENTÍSTICA', codigo: 'DENTISTICA', extra_rol: false },
+    4: { nome: 'ENDODONTIA', codigo: 'ENDO', extra_rol: false },
+    5: { nome: 'PRÓTESE', codigo: 'PROTESE', extra_rol: true },
+    6: { nome: 'ORTODONTIA', codigo: 'ORTODONT', extra_rol: true },
+    8: { nome: 'PERIODONTIA', codigo: 'PERIO', extra_rol: false },
+    9: { nome: 'ODONTOPEDIATRIA', codigo: 'ODONTOPED', extra_rol: false },
+    10: { nome: 'RADIOLOGIA', codigo: 'RADIO', extra_rol: false },
+    11: { nome: 'IMPLANTODONTIA', codigo: 'IMPLANTE', extra_rol: true },
+    15: { nome: 'URGÊNCIA/EMERGÊNCIA', codigo: 'URGENCIA', extra_rol: false },
+    18: { nome: 'CLÍNICA GERAL', codigo: 'CLINICA', extra_rol: false },
+    19: { nome: 'PATOLOGIA ORAL', codigo: 'PATOLOGIA', extra_rol: false },
+    23: { nome: 'CIRURGIA BUCAL', codigo: 'CIR_BUCAL', extra_rol: false },
+    25: { nome: 'PREVENÇÃO', codigo: 'PREV', extra_rol: false },
+    27: { nome: 'ESTOMATOLOGIA', codigo: 'ESTOMATO', extra_rol: false },
+    34: { nome: 'DTM', codigo: 'DTM', extra_rol: false },
+    35: { nome: 'HARMONIZAÇÃO FACIAL', codigo: 'HARMONIZ', extra_rol: true }
+};
+
+// Salvar mapeamento
+fs.writeFileSync('documents/especialidades-mapeadas.json', JSON.stringify(especialidadesCompletas, null, 2));
+
+console.log('\n✅ Mapeamento salvo em documents/especialidades-mapeadas.json');
