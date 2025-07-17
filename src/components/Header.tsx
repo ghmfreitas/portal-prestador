@@ -48,7 +48,7 @@ export default function Header() {
   const recentNotifications = notifications.slice(0, 5)
 
   return (
-    <header className="bg-white border-b border-gray-200 px-4 lg:px-6 h-[77px] flex items-center z-50 col-span-full">
+    <header className="bg-white border-b border-gray-200 px-4 desktop:px-6 h-[77px] flex items-center z-50 col-span-full">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center">

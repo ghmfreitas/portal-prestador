@@ -82,11 +82,11 @@ export default function MaterialApoioPage() {
   if (!user) return null
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       
       {/* Mobile Navigation */}
-      <nav className="bg-white border-b border-gray-200 p-2 lg:hidden col-span-full">
+      <nav className="bg-white border-b border-gray-200 p-2 desktop:hidden col-span-full">
         <div className="flex space-x-1 overflow-x-auto">
           {mobileMenuItems.map((item) => {
             const isActive = pathname === item.href
@@ -113,7 +113,7 @@ export default function MaterialApoioPage() {
       </nav>
       
       <Sidebar />
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h4 className="text-lg font-medium text-[#F05223] mb-1">Material</h4>
@@ -121,7 +121,7 @@ export default function MaterialApoioPage() {
           </div>
 
           {/* Grid de Cards em 2 colunas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-20">
+          <div className="grid grid-cols-1 desktop:grid-cols-2 gap-6 mb-20">
             {materialCards.map((card) => {
               if (card.isExternal) {
                 return (

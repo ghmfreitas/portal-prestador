@@ -44,11 +44,11 @@ export default function DashboardPage() {
   if (!user) return null
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       
       {/* Mobile Navigation */}
-      <nav className="bg-white border-b border-gray-200 p-2 lg:hidden col-span-full">
+      <nav className="bg-white border-b border-gray-200 p-2 desktop:hidden col-span-full">
         <div className="flex space-x-1 overflow-x-auto">
           {mobileMenuItems.map((item) => {
             const isActive = pathname === item.href
@@ -75,7 +75,7 @@ export default function DashboardPage() {
       </nav>
       
       <Sidebar />
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h4 className="text-lg font-medium text-[#F05223] mb-1">Home</h4>
@@ -83,7 +83,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Grid de Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 gap-6 mb-8">
             {/* Card 1 - Faturamento em Análise */}
             <div className="bg-white border border-[#EAE7EC] rounded-xl p-6">
               <div className="flex items-start justify-between">
@@ -125,7 +125,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Grid de 2 colunas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 desktop:grid-cols-2 gap-6">
             {/* Coluna Esquerda - Solicitações Recentes */}
             <div className="bg-white border border-[#EAE7EC] rounded-xl p-6 flex flex-col h-[600px]">
               <div className="mb-6">
@@ -305,7 +305,7 @@ export default function DashboardPage() {
           {/* Cards de Planos */}
           <div className="mt-8 mb-20">
             <h2 className="text-xl font-semibold text-gray-900 mb-6">Nossos Planos</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 tablet:grid-cols-3 gap-6">
               {/* Card 1 */}
               <div className="bg-white border border-[#EAE7EC] rounded-xl overflow-hidden flex flex-col h-full">
                 <div className="h-48 relative">

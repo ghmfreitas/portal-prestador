@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  portal-prestador:
+    image: node:20-alpine
+    working_dir: /app
+    command: npm start
+    volumes:
+      - .:/app
+    networks:
+      - mnhNet
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.portal-prestador.loadbalancer.server.port=3000"
+        - "traefik.http.routers.portal-prestador.rule=Host(`odonto.mnd-system.cloud`)"
+        - "traefik.http.routers.portal-prestador.entrypoints=web,websecure"
+        - "traefik.http.routers.portal-prestador.tls=true"
+        - "traefik.docker.network=mnhNet"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+
+networks:
+  mnhNet:
+    external: true

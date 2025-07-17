@@ -543,7 +543,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
       </div>
 
       {/* Breadcrumb de progresso */}
-      <div className="flex items-center space-x-2 text-xs lg:text-sm flex-wrap">
+      <div className="flex items-center space-x-2 text-xs desktop:text-sm flex-wrap">
         <span className={etapaAtual >= 1 ? "text-[#F05223] font-medium" : "text-gray-400"}>
           1. Fase
         </span>
@@ -844,7 +844,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Assinale a medida do trespasse horizontal
               </Label>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl mt-3">
+              <div className="grid grid-cols-2 desktop:grid-cols-3 gap-4 max-w-2xl mt-3">
                 {medidasTrespasse.map((medida) => 
                   renderCard(medida, dados.medidaOverjet || '', handleSelecionarMedidaOverjet)
                 )}
@@ -867,7 +867,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Assinale a medida do trespasse vertical
               </Label>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl mt-3">
+              <div className="grid grid-cols-2 desktop:grid-cols-3 gap-4 max-w-2xl mt-3">
                 {medidasTrespasse.map((medida) => 
                   renderCard(medida, dados.medidaOverbite || '', handleSelecionarMedidaOverbite)
                 )}
@@ -1052,7 +1052,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Doença Periodontal
                 </Label>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
+                <div className="grid grid-cols-2 desktop:grid-cols-4 gap-4 mt-3">
                   {grausDoencaPeriodontal.map((grau) => 
                     renderCard(grau, dados.doencaPeriodontal || '', handleSelecionarDoencaPeriodontal)
                   )}

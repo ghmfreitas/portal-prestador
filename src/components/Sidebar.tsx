@@ -47,7 +47,7 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="bg-white border-r border-gray-200 row-start-2 row-end-3 overflow-y-auto hidden lg:block lg:overflow-y-auto">
+    <aside className="bg-white border-r border-gray-200 row-start-2 row-end-3 overflow-y-auto hidden desktop:block desktop:overflow-y-auto">
       <nav className="p-4 h-full flex flex-col">
         <ul className="space-y-2">
           {menuItems.map((item) => {

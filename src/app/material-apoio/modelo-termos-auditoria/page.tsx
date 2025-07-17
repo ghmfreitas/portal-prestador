@@ -99,11 +99,11 @@ export default function ModeloTermosAuditoriaPage() {
   if (!user) return null
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       <Sidebar />
       
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
           {/* Cabeçalho */}
           <div className="mb-8">
@@ -112,7 +112,7 @@ export default function ModeloTermosAuditoriaPage() {
           </div>
 
           {/* Grid de Cards em 2 colunas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-20">
+          <div className="grid grid-cols-1 desktop:grid-cols-2 gap-6 mb-20">
             {termosCards.map((card) => (
               <a
                 key={card.id}

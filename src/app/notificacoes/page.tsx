@@ -304,11 +304,11 @@ export default function NotificationsPage() {
   if (!user) return null
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       
       {/* Mobile Navigation */}
-      <nav className="bg-white border-b border-gray-200 p-2 lg:hidden col-span-full">
+      <nav className="bg-white border-b border-gray-200 p-2 desktop:hidden col-span-full">
         <div className="flex space-x-1 overflow-x-auto">
           <Link href="/dashboard" className="flex flex-col items-center min-w-0 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
             <Bell className="h-4 w-4" />
@@ -319,7 +319,7 @@ export default function NotificationsPage() {
       
       <Sidebar />
       
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
           {/* Header da página */}
           <div className="mb-8">
@@ -381,7 +381,7 @@ export default function NotificationsPage() {
 
             {showFilters && (
               <div className="border-t border-gray-200 pt-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-4 gap-4 mb-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
                     <select

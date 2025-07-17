@@ -303,10 +303,10 @@ export default function ConfiguracoesPage() {
   if (!user) return null
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       <Sidebar />
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
         {/* Cabeçalho */}
         <div className="mb-8">
@@ -358,7 +358,7 @@ export default function ConfiguracoesPage() {
             {/* Dados Pessoais */}
             {activeTab === 'dados-pessoais' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nome Completo
@@ -401,8 +401,8 @@ export default function ConfiguracoesPage() {
             {/* Endereço */}
             {activeTab === 'endereco' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="md:col-span-2">
+                <div className="grid grid-cols-1 tablet:grid-cols-3 gap-6">
+                  <div className="tablet:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Endereço
                     </label>
@@ -427,7 +427,7 @@ export default function ConfiguracoesPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Bairro
@@ -453,8 +453,8 @@ export default function ConfiguracoesPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="md:col-span-2">
+                <div className="grid grid-cols-1 tablet:grid-cols-3 gap-6">
+                  <div className="tablet:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Cidade
                     </label>
@@ -503,7 +503,7 @@ export default function ConfiguracoesPage() {
             {/* Contato */}
             {activeTab === 'contato' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Telefone
@@ -587,7 +587,7 @@ export default function ConfiguracoesPage() {
             {activeTab === 'areas-atuacao' && (
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Selecione suas áreas de atuação e especialidades</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                   {areasAtuacao.map((area) => (
                     <div
                       key={area.id}
@@ -634,7 +634,7 @@ export default function ConfiguracoesPage() {
               <div className="space-y-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Informações Bancárias</h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Banco
@@ -667,7 +667,7 @@ export default function ConfiguracoesPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Agência

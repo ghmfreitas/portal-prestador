@@ -90,10 +90,10 @@ export default function SolicitacoesAlteracaoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       <Sidebar />
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
           {/* Cabeçalho */}
           <div className="mb-8">
@@ -127,9 +127,9 @@ export default function SolicitacoesAlteracaoPage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 desktop:grid-cols-3 gap-6">
               {/* Lista de Solicitações */}
-              <div className="lg:col-span-2 space-y-4">
+              <div className="desktop:col-span-2 space-y-4">
                 {solicitacoes.sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime()).map((solicitacao) => {
                   const StatusIcon = statusConfig[solicitacao.status].icon
                   return (
@@ -180,7 +180,7 @@ export default function SolicitacoesAlteracaoPage() {
               </div>
 
               {/* Detalhes da Solicitação */}
-              <div className="lg:col-span-1">
+              <div className="desktop:col-span-1">
                 {solicitacaoSelecionada ? (
                   <div className="bg-white border border-[#EAE7EC] rounded-xl p-6 sticky top-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">

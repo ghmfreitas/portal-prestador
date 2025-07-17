@@ -605,11 +605,11 @@ export default function SolicitarPage() {
   // Se a solicitação foi enviada, mostrar tela de sucesso
   if (solicitacaoEnviada) {
     return (
-      <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+      <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
         <Header />
         
         {/* Mobile Navigation */}
-        <nav className="bg-white border-b border-gray-200 p-2 lg:hidden col-span-full">
+        <nav className="bg-white border-b border-gray-200 p-2 desktop:hidden col-span-full">
           <div className="flex space-x-1 overflow-x-auto">
             {mobileMenuItems.map((item) => {
               const Icon = item.icon
@@ -634,7 +634,7 @@ export default function SolicitarPage() {
 
         <Sidebar />
 
-        <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+        <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
           <div className="max-w-7xl mx-auto">
             <div className="mb-8">
               <h4 className="text-lg font-medium text-[#F05223] mb-1">Solicitar</h4>
@@ -668,7 +668,7 @@ export default function SolicitarPage() {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-gray-700">Número do Protocolo</label>
                     <div className="text-lg font-mono font-bold text-green-700">{numeroProtocolo}</div>
@@ -687,7 +687,7 @@ export default function SolicitarPage() {
                   Dados do Prestador
                 </h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-gray-700">Nome</label>
                     <div className="text-base text-gray-900">{dadosPrestador.nome}</div>
@@ -706,7 +706,7 @@ export default function SolicitarPage() {
                   Dados do Paciente
                 </h3>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-gray-700">Identificação</label>
                     <div className="text-base text-gray-900">
@@ -748,7 +748,7 @@ export default function SolicitarPage() {
                             )}
                           </div>
                           
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-gray-600">
+                          <div className="grid grid-cols-2 tablet:grid-cols-4 gap-2 text-sm text-gray-600">
                             <div>
                               <span className="font-medium">Código:</span> {procSelecionado.procedimento.codigo_tuss}
                             </div>
@@ -768,7 +768,7 @@ export default function SolicitarPage() {
                               </div>
                             )}
                             {procSelecionado.dadosOrtodontia?.faseTratamento && (
-                              <div className="md:col-span-4">
+                              <div className="tablet:col-span-4">
                                 <span className="font-medium">Ortodontia:</span> 
                                 <span className="capitalize ml-1">
                                   {procSelecionado.dadosOrtodontia.faseTratamento}
@@ -802,7 +802,7 @@ export default function SolicitarPage() {
               </div>
 
               {/* Botões de Ação */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col mobile:flex-row gap-4 justify-center">
                 <Button 
                   type="button"
                   variant="outline"
@@ -830,11 +830,11 @@ export default function SolicitarPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] lg:grid-rows-[77px_1fr_auto] lg:grid-cols-[256px_1fr]">
+    <div className="min-h-screen bg-white grid grid-rows-[77px_auto_1fr_auto] desktop:grid-rows-[77px_1fr_auto] desktop:grid-cols-[256px_1fr]">
       <Header />
       
       {/* Mobile Navigation */}
-      <nav className="bg-white border-b border-gray-200 p-2 lg:hidden col-span-full">
+      <nav className="bg-white border-b border-gray-200 p-2 desktop:hidden col-span-full">
         <div className="flex space-x-1 overflow-x-auto">
           {mobileMenuItems.map((item) => {
             const isActive = pathname === item.href
@@ -861,7 +861,7 @@ export default function SolicitarPage() {
       </nav>
       
       <Sidebar />
-      <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+      <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h4 className="text-lg font-medium text-[#F05223] mb-1">Solicitar</h4>
@@ -938,7 +938,7 @@ export default function SolicitarPage() {
                     {/* Tipo de Validação */}
                     <div className="space-y-4">
                       <Label className="text-sm font-medium text-gray-700">Selecione o tipo de validação</Label>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+                      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4 max-w-2xl">
                         {/* Card CPF */}
                         <div 
                           className={`
@@ -1095,9 +1095,9 @@ export default function SolicitarPage() {
                         Dados Pessoais
                       </h3>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                         {/* Nome */}
-                        <div className="md:col-span-2">
+                        <div className="tablet:col-span-2">
                           <Label className="text-sm font-medium text-gray-700">Nome Completo</Label>
                           <p className="mt-1 text-base text-gray-900 font-medium">Maria Silva Santos</p>
                         </div>
@@ -1128,7 +1128,7 @@ export default function SolicitarPage() {
                         Dados do Plano
                       </h3>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-6">
                         {/* Código de Carteirinha */}
                         <div>
                           <Label className="text-sm font-medium text-gray-700">Número da Carteirinha</Label>
@@ -1266,7 +1266,7 @@ export default function SolicitarPage() {
                                     )}
                                   </div>
                                   
-                                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-gray-600">
+                                  <div className="grid grid-cols-2 tablet:grid-cols-4 gap-2 text-sm text-gray-600">
                                     <div>
                                       <span className="font-medium">Código:</span> {procSelecionado.procedimento.codigo_tuss}
                                     </div>
@@ -1286,7 +1286,7 @@ export default function SolicitarPage() {
                                       </div>
                                     )}
                                     {procSelecionado.dadosOrtodontia?.faseTratamento && (
-                                      <div className="md:col-span-4">
+                                      <div className="tablet:col-span-4">
                                         <span className="font-medium">Ortodontia:</span> 
                                         <span className="capitalize ml-1">
                                           {procSelecionado.dadosOrtodontia.faseTratamento}
@@ -1362,7 +1362,7 @@ export default function SolicitarPage() {
                           Informações do Procedimento
                         </h3>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                           <div>
                             <Label className="text-sm font-medium text-gray-700">Código TUSS</Label>
                             <div className="text-base font-medium text-gray-900">{procedimentoSelecionado.codigo_tuss}</div>
@@ -1377,7 +1377,7 @@ export default function SolicitarPage() {
                         {dadosOrtodontia.faseTratamento && procedimentoSelecionado.especialidade?.toUpperCase().includes('ORTODONTIA') && (
                           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                             <h4 className="text-sm font-medium text-blue-800 mb-2">Dados da Pré-Aprovação de Ortodontia</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 tablet:grid-cols-3 gap-4">
                               <div>
                                 <Label className="text-sm font-medium text-blue-700">Fase</Label>
                                 <div className="text-base font-medium text-blue-900 capitalize">{dadosOrtodontia.faseTratamento}</div>
@@ -1603,7 +1603,7 @@ export default function SolicitarPage() {
                         Dados do Prestador
                       </h3>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                         <div>
                           <Label className="text-sm font-medium text-gray-700">Nome</Label>
                           <div className="text-base text-gray-900">{dadosPrestador.nome}</div>
@@ -1620,7 +1620,7 @@ export default function SolicitarPage() {
                           <Label className="text-sm font-medium text-gray-700">Especialidade</Label>
                           <div className="text-base text-gray-900">{dadosPrestador.especialidade}</div>
                         </div>
-                        <div className="md:col-span-2">
+                        <div className="tablet:col-span-2">
                           <Label className="text-sm font-medium text-gray-700">Endereço</Label>
                           <div className="text-base text-gray-900">{dadosPrestador.endereco}</div>
                         </div>
@@ -1634,7 +1634,7 @@ export default function SolicitarPage() {
                         Dados do Paciente
                       </h3>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 tablet:grid-cols-2 gap-4">
                         <div>
                           <Label className="text-sm font-medium text-gray-700">Identificação</Label>
                           <div className="text-base text-gray-900">
@@ -1676,7 +1676,7 @@ export default function SolicitarPage() {
                                   )}
                                 </div>
                                 
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-gray-600 mb-2">
+                                <div className="grid grid-cols-2 tablet:grid-cols-4 gap-2 text-sm text-gray-600 mb-2">
                                   <div>
                                     <span className="font-medium">Código:</span> {procSelecionado.procedimento.codigo_tuss}
                                   </div>
@@ -1696,7 +1696,7 @@ export default function SolicitarPage() {
                                     </div>
                                   )}
                                   {procSelecionado.dadosOrtodontia?.faseTratamento && (
-                                    <div className="md:col-span-4">
+                                    <div className="tablet:col-span-4">
                                       <span className="font-medium">Ortodontia:</span> 
                                       <span className="capitalize ml-1">
                                         {procSelecionado.dadosOrtodontia.faseTratamento}

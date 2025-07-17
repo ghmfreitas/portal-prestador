@@ -1,4 +1,8 @@
 {
-  "/esqueci-senha/page": "app/esqueci-senha/page.js",
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/doc-dev/page": "app/doc-dev/page.js",
+  "/solicitacoes-alteracao/page": "app/solicitacoes-alteracao/page.js",
+  "/solicitar/page": "app/solicitar/page.js",
+  "/configuracoes/page": "app/configuracoes/page.js"
 }

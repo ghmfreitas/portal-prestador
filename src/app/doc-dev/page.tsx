@@ -82,7 +82,7 @@ export default function DocDevPage() {
   )
 
   return (
-    <main className="p-4 lg:p-8 overflow-auto lg:col-start-2">
+    <main className="p-4 desktop:p-8 overflow-auto desktop:col-start-2">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -149,7 +149,7 @@ export default function DocDevPage() {
                   <h2 className="text-xl font-semibold text-gray-900">Equipe de Design</h2>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="grid tablet:grid-cols-2 gap-6 mb-6">
                   <ProfileCard
                     name="Gustavo"
                     role="Product Designer"
@@ -240,7 +240,7 @@ export default function DocDevPage() {
 
                 <div className="mb-6">
                   <h3 className="text-lg font-medium text-gray-900 mb-3">🏠 Analogia com Design</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid tablet:grid-cols-3 gap-4">
                     <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
                       <h4 className="font-medium text-purple-800 mb-2">Figma</h4>
                       <p className="text-sm text-purple-600">Onde vocês criam/editam designs</p>
@@ -258,7 +258,7 @@ export default function DocDevPage() {
 
                 <div>
                   <h3 className="text-lg font-medium text-gray-900 mb-3">🌐 URLs de Acesso</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid tablet:grid-cols-3 gap-4">
                     <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                       <h4 className="font-medium text-green-800 mb-2">Produção</h4>
                       <a 
@@ -508,7 +508,7 @@ export default function DocDevPage() {
 
                   <div className="bg-gray-50 rounded-lg p-4">
                     <h3 className="font-medium text-gray-900 mb-3">Cenário 2: Trabalho simultâneo com Karine</h3>
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid tablet:grid-cols-2 gap-4">
                       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                         <h4 className="font-medium text-blue-800 mb-2">Gustavo (porta 3001)</h4>
                         <ul className="text-sm text-blue-700 space-y-1">
@@ -537,7 +537,7 @@ export default function DocDevPage() {
               <section className="bg-white border border-[#EAE7EC] rounded-xl p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-6">📝 Exemplos de Mensagens de Commit</h2>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid tablet:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 mb-3">Para Design/Interface:</h3>
                     <div className="space-y-2">
@@ -586,7 +586,7 @@ export default function DocDevPage() {
                   <h2 className="text-xl font-semibold text-gray-900">Comandos Personalizados</h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid tablet:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 mb-4">Para Gustavo:</h3>
                     <CommandBox
@@ -861,7 +861,7 @@ export default function DocDevPage() {
               <section className="bg-white border border-[#EAE7EC] rounded-xl p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-6">📋 Status da Configuração</h2>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid tablet:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 mb-3">✅ Já Configurado:</h3>
                     <ul className="space-y-2 text-sm text-gray-700">
@@ -905,7 +905,7 @@ export default function DocDevPage() {
 
                 <div className="mt-6 bg-gray-50 rounded-lg p-4">
                   <h3 className="font-medium text-gray-900 mb-2">🔧 Informações Técnicas:</h3>
-                  <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                  <div className="grid tablet:grid-cols-2 gap-4 text-sm text-gray-700">
                     <div>
                       <p><strong>SSH Key:</strong> ssh-ed25519 (já configurada)</p>
                       <p><strong>Email Git:</strong> ghmfreitas@gmail.com</p>
@@ -1018,7 +1018,7 @@ export default function DocDevPage() {
               <section className="bg-white border border-[#EAE7EC] rounded-xl p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-6">💡 Dicas de Segurança</h2>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid tablet:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-medium text-gray-900 mb-3">✅ Boas Práticas:</h3>
                     <ul className="space-y-2 text-sm text-gray-700">
@@ -1102,7 +1102,7 @@ export default function DocDevPage() {
               <h2 className="text-xl font-semibold">Resumo Rápido do Workflow</h2>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid tablet:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-medium mb-3">Para Gustavo:</h3>
                 <ol className="space-y-2 text-sm">

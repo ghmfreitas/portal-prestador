@@ -66,7 +66,7 @@ export default function TermoAceitePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-20 xl:px-24">
+      <div className="max-w-4xl mx-auto px-4 py-12 mobile:px-6 tablet:px-20 wide:px-24">
         {/* Cabeçalho */}
         <div className="text-center mb-8">
           <Image 

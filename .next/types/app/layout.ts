@@ -1,4 +1,4 @@
-// File: /home/gustavo/VSCode/portal-prestador-odonto/src/app/layout.tsx
+// File: /root/claude-projects/portal-prestador/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
