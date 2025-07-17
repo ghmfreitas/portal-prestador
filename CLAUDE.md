@@ -1,5 +1,26 @@
 # 📋 INSTRUÇÕES DO PROJETO - PORTAL PRESTADOR ODONTO
 
+## 🚀 PROMPT INICIAL RECOMENDADO
+
+Para iniciar o trabalho de forma organizada, use o comando:
+
+```
+Carregue 'CLAUDE.md' para [NOME_USUARIO]
+```
+
+**Exemplos:**
+- `Carregue 'CLAUDE.md' para Gustavo`
+- `Carregue 'CLAUDE.md' para Karine`
+- `Carregue 'CLAUDE.md' para [SEU_NOME]`
+
+**O que acontece:**
+1. ✅ CLAUDE.md é carregado e memorizado
+2. 👤 Perfil do usuário é identificado automaticamente
+3. 🔧 Comandos e configurações adequadas são carregados
+4. 🚀 Ambiente fica pronto para trabalho específico
+
+---
+
 ## 📊 VISÃO GERAL DO SISTEMA
 - Sistema **web e mobile** para prestadores odontológicos
 - Integração com a SulAmérica (cor primária laranja #F05223)
@@ -456,10 +477,30 @@ className="h-[44px] px-6 border border-gray-300 text-gray-700 rounded-full hover
 - Focar em explicações de design e UX quando necessário
 - Exemplos de commit: `ui: adiciona novos componentes Y`
 
-### **IDENTIFICAÇÃO AUTOMÁTICA**
-- Quando alguém se identificar como "Gustavo" → usar perfil Gustavo
-- Quando alguém se identificar como "Karine" → usar perfil Karine
-- Se não houver identificação → perguntar quem está solicitando
+### **IDENTIFICAÇÃO AUTOMÁTICA PELO PROMPT INICIAL**
+
+#### **Comando Recomendado:**
+```
+Carregue 'CLAUDE.md' para [NOME_USUARIO]
+```
+
+#### **Lógica de Identificação:**
+- `Carregue 'CLAUDE.md' para Gustavo` → carrega perfil Gustavo
+- `Carregue 'CLAUDE.md' para Karine` → carrega perfil Karine  
+- `Carregue 'CLAUDE.md' para [OUTRO_NOME]` → pergunta se é desenvolvedor ou designer
+- `Carregue 'CLAUDE.md'` (sem especificar) → pergunta quem está solicitando
+
+#### **Resposta Automática do Claude:**
+```
+✅ CLAUDE.md carregado para [NOME]!
+
+👤 **Perfil identificado:** [Designer/Desenvolvedor]
+🌿 **Branch:** dev-[nome] 
+🔌 **Porta:** [3001/3002/outra]
+⚡ **Comando de início:** ./scripts/dev-server.sh [nome] [porta]
+
+Pronto para trabalhar com configurações específicas do seu perfil!
+```
 
 ### **CONTEXTO DE TRABALHO**
 Ambos são **designers de produto** que trabalham no código para:

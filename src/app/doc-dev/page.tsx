@@ -334,6 +334,59 @@ export default function DocDevPage() {
                   <div className="border-l-4 border-green-500 pl-4">
                     <h3 className="text-lg font-medium text-gray-900 mb-4">1. Começar o Dia</h3>
                     <p className="text-gray-600 mb-4">Prepare seu ambiente de trabalho:</p>
+                    
+                    {/* Prompt Inicial */}
+                    <div className="bg-[#F05223]/10 border border-[#F05223]/20 rounded-lg p-4 mb-4">
+                      <h4 className="text-sm font-semibold text-[#F05223] mb-2">🚀 Prompt Inicial Recomendado</h4>
+                      <p className="text-sm text-gray-700 mb-3">Inicie sempre sua sessão com o Claude usando o comando adequado para seu perfil:</p>
+                      
+                      {/* Para Gustavo */}
+                      <div className="mb-3">
+                        <p className="text-xs font-medium text-gray-700 mb-1">👨‍💻 Para Gustavo:</p>
+                        <div className="bg-gray-900 rounded-lg p-3">
+                          <code className="text-green-400 font-mono text-sm">Carregue 'CLAUDE.md' para Gustavo</code>
+                          <div className="flex items-center space-x-1 mt-2">
+                            <button
+                              onClick={() => copyToClipboard("Carregue 'CLAUDE.md' para Gustavo", "prompt-gustavo")}
+                              className="flex items-center space-x-1 text-gray-400 hover:text-white transition-colors text-xs"
+                            >
+                              {copiedCommand === "prompt-gustavo" ? (
+                                <Check className="w-3 h-3 text-green-400" />
+                              ) : (
+                                <Copy className="w-3 h-3" />
+                              )}
+                              <span>Copiar</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Para Karine */}
+                      <div className="mb-3">
+                        <p className="text-xs font-medium text-gray-700 mb-1">👩‍💻 Para Karine:</p>
+                        <div className="bg-gray-900 rounded-lg p-3">
+                          <code className="text-green-400 font-mono text-sm">Carregue 'CLAUDE.md' para Karine</code>
+                          <div className="flex items-center space-x-1 mt-2">
+                            <button
+                              onClick={() => copyToClipboard("Carregue 'CLAUDE.md' para Karine", "prompt-karine")}
+                              className="flex items-center space-x-1 text-gray-400 hover:text-white transition-colors text-xs"
+                            >
+                              {copiedCommand === "prompt-karine" ? (
+                                <Check className="w-3 h-3 text-green-400" />
+                              ) : (
+                                <Copy className="w-3 h-3" />
+                              )}
+                              <span>Copiar</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-xs text-gray-600 mt-2">
+                        ✅ Isso carrega automaticamente seu perfil específico (branch, porta, comandos e configurações adequadas)
+                      </p>
+                    </div>
+
                     <div className="space-y-2">
                       <CommandBox
                         id="workflow-1"
