@@ -1,5 +1,10 @@
 # 📋 INSTRUÇÕES DO PROJETO - PORTAL PRESTADOR ODONTO
 
+## 📊 VISÃO GERAL DO SISTEMA
+- Sistema **web e mobile** para prestadores odontológicos
+- Integração com a SulAmérica (cor primária laranja #F05223)
+- Foco em gestão de procedimentos, faturamento e elegibilidade
+
 ## 🎯 REGRAS FUNDAMENTAIS DE ORGANIZAÇÃO
 
 ### **📁 Estrutura de Arquivos (OBRIGATÓRIA)**
@@ -414,3 +419,278 @@ className="h-[44px] px-6 border border-gray-300 text-gray-700 rounded-full hover
 3. **🎨 Seguir** design system rigorosamente
 4. **📋 Manter** estrutura organizada
 5. **✅ Documentar** mudanças importantes
+
+---
+
+# 👥 PERFIS DA EQUIPE (MEMORIZAÇÃO PERMANENTE)
+
+## **GUSTAVO**
+- **Função**: Product Designer
+- **Perfil**: Não é desenvolvedor, é designer de produto
+- **Branch Git**: `dev-gustavo`
+- **Porta de Desenvolvimento**: `3001`
+- **Comando de Início**: `./scripts/dev-server.sh gustavo 3001`
+- **Especialidade**: Design de interfaces e experiência do usuário
+- **Contexto**: Trabalha no código para criar e testar interfaces
+
+## **KARINE**
+- **Função**: Product Designer  
+- **Perfil**: Não é desenvolvedora, é designer de produto
+- **Branch Git**: `dev-karine`
+- **Porta de Desenvolvimento**: `3002`
+- **Comando de Início**: `./scripts/dev-server.sh karine 3002`
+- **Especialidade**: Design de interfaces e experiência do usuário
+- **Contexto**: Trabalha no código para criar e testar interfaces
+
+## **INSTRUÇÕES ESPECÍFICAS PARA CADA MEMBRO**
+
+### **Para Gustavo:**
+- Sempre orientar com comandos específicos para `dev-gustavo`
+- Usar porta 3001 como padrão
+- Focar em explicações de design e UX quando necessário
+- Exemplos de commit: `design: melhora layout da página X`
+
+### **Para Karine:**
+- Sempre orientar com comandos específicos para `dev-karine`  
+- Usar porta 3002 como padrão
+- Focar em explicações de design e UX quando necessário
+- Exemplos de commit: `ui: adiciona novos componentes Y`
+
+### **IDENTIFICAÇÃO AUTOMÁTICA**
+- Quando alguém se identificar como "Gustavo" → usar perfil Gustavo
+- Quando alguém se identificar como "Karine" → usar perfil Karine
+- Se não houver identificação → perguntar quem está solicitando
+
+### **CONTEXTO DE TRABALHO**
+Ambos são **designers de produto** que trabalham no código para:
+- Criar e testar interfaces de usuário
+- Desenvolver componentes visuais
+- Implementar experiências do usuário
+- Fazer ajustes de layout e styling
+- Testar protótipos funcionais
+
+---
+
+# 🔍 METODOLOGIA DE INVESTIGAÇÃO EM ETAPAS
+
+## **PRINCÍPIOS FUNDAMENTAIS**
+
+### **1. Trabalhar em Etapas Claras**
+- **NUNCA** executar múltiplas soluções de uma vez
+- **SEMPRE** aguardar feedback do usuário antes de prosseguir
+- **DIVIDIR** problemas complexos em investigações menores
+
+### **2. Processo de Investigação**
+1. **Identificar sintomas** - O que exatamente está acontecendo?
+2. **Coletar evidências** - Logs, erros no console, status HTTP
+3. **Formar hipóteses** - Baseadas nas evidências coletadas
+4. **Testar uma hipótese por vez** - Isolar variáveis
+5. **Documentar descobertas** - Para referência futura
+
+### **3. Comunicação com o Usuário**
+- **Explicar** o que será verificado e por quê
+- **Solicitar** informações específicas quando necessário
+- **Aguardar** confirmação antes de prosseguir
+- **Resumir** descobertas em cada etapa
+
+### **4. Exemplo de Investigação Bem-Sucedida**
+
+#### **Problema**: Tela branca na página de login com Cloudflare
+
+**Etapa 1**: Identificação inicial
+- Sintoma: Página carrega e fica branca após 1 segundo
+- Evidências: Erros 404 em imagens, erro 500 em chunk JS
+
+**Etapa 2**: Análise de versões
+- Descoberta: Build em produção diferente do build local
+- Evidência: BuildId no HTML diferente do servidor
+
+**Etapa 3**: Identificação de cache
+- Descoberta: Cloudflare servindo HTML antigo em cache
+- Solução: Limpar cache e ativar Development Mode
+
+**Etapa 4**: Correção de inconsistências
+- Descoberta: Caminhos de imagens inconsistentes entre páginas
+- Solução: Padronizar todos os caminhos
+
+**Etapa 5**: Deploy e verificação
+- Ação: Rebuild e force update do Docker service
+- Resultado: Problema resolvido
+
+### **5. Ferramentas de Diagnóstico**
+
+#### **Para problemas de cache/CDN:**
+```bash
+# Verificar headers de resposta
+curl -I https://dominio.com/recurso
+
+# Comparar buildId local vs produção
+curl -s https://dominio.com | grep -o '"buildId":"[^"]*"'
+```
+
+#### **Para problemas de Docker/Deploy:**
+```bash
+# Listar serviços
+docker service ls | grep nome
+
+# Forçar atualização
+docker service update --force [service-id]
+```
+
+#### **Para problemas de arquivos estáticos:**
+```bash
+# Verificar se arquivo existe
+ls -la /caminho/arquivo
+
+# Testar acesso local
+curl -I localhost:3000/caminho/recurso
+```
+
+### **6. Checklist de Investigação**
+
+- [ ] Console do navegador verificado
+- [ ] Network/Rede analisada (status HTTP)
+- [ ] Logs do servidor verificados
+- [ ] Cache limpo (browser e CDN)
+- [ ] Versões/builds comparadas
+- [ ] Serviços reiniciados se necessário
+- [ ] Problema isolado e reproduzível
+
+### **7. Quando Escalar**
+
+Se após investigação sistemática o problema persistir:
+1. Verificar configurações de proxy reverso (Nginx, Traefik)
+2. Analisar logs de sistema mais profundos
+3. Considerar problemas de infraestrutura
+4. Documentar todas as tentativas para referência
+
+---
+
+# 🔄 METODOLOGIA DE EXECUÇÃO SEQUENCIAL (OBRIGATÓRIA)
+
+## **REGRA FUNDAMENTAL**
+**NUNCA executar múltiplos comandos bash simultaneamente. SEMPRE executar um comando por vez e explicar cada passo.**
+
+## **PROCESSO OBRIGATÓRIO**
+
+### **1. Antes de Executar Qualquer Comando:**
+- **Explicar** o que o comando fará
+- **Justificar** por que é necessário
+- **Informar** o resultado esperado
+
+### **2. Durante a Execução:**
+- **Executar apenas 1 comando** por vez
+- **Aguardar** o resultado completo
+- **Analisar** a saída do comando
+
+### **3. Após a Execução:**
+- **Interpretar** os resultados
+- **Explicar** o que foi descoberto
+- **Decidir** o próximo passo baseado no resultado
+
+## **EXEMPLOS DE EXECUÇÃO CORRETA**
+
+### ✅ **CORRETO - Execução Sequencial:**
+
+**Passo 1**: Vou verificar o status atual do Git para entender o estado do repositório
+```bash
+git status
+```
+*Aguarda resultado...*
+
+**Interpretação**: O comando mostrou que temos arquivos modificados em staging. 
+
+**Passo 2**: Agora vou verificar as configurações atuais do Git para confirmar a URL do repositório
+```bash
+git remote -v
+```
+*Aguarda resultado...*
+
+**Interpretação**: Confirmado que estamos usando SSH. Vou precisar configurar HTTPS com token.
+
+**Passo 3**: Vou configurar a URL do repositório para usar HTTPS com token
+```bash
+git remote set-url origin https://TOKEN@github.com/user/repo.git
+```
+
+### ❌ **INCORRETO - Execução Múltipla:**
+```bash
+git status && git remote -v && git remote set-url origin https://TOKEN@github.com/user/repo.git
+```
+
+## **COMANDOS PERMITIDOS EM PARALELO**
+Apenas quando são **logicamente independentes** e para **coleta de informações**:
+
+```bash
+# ✅ Permitido - comandos de leitura independentes
+git status
+git log --oneline -5
+```
+
+## **COMANDOS PROIBIDOS EM PARALELO**
+```bash
+# ❌ Proibido - comandos que dependem uns dos outros
+git add . && git commit -m "message" && git push
+
+# ❌ Proibido - comandos que modificam estado
+npm run build && docker service update --force service-id
+```
+
+## **BENEFÍCIOS DESTA METODOLOGIA**
+
+### **1. Para o Usuário:**
+- **Acompanhamento**: Pode ver cada passo sendo executado
+- **Compreensão**: Entende o que está acontecendo
+- **Controle**: Pode interromper se algo estiver errado
+- **Aprendizado**: Compreende o processo de resolução
+
+### **2. Para Resolução de Problemas:**
+- **Isolamento**: Cada erro pode ser identificado precisamente
+- **Diagnóstico**: Problemas são detectados no comando exato
+- **Depuração**: Mais fácil encontrar onde algo deu errado
+- **Rollback**: Possível desfazer apenas o comando problemático
+
+### **3. Para Documentação:**
+- **Histórico claro**: Cada passo fica registrado
+- **Reprodutibilidade**: Outros podem seguir o mesmo processo
+- **Transparência**: Todo o processo fica documentado
+
+## **EXCEÇÕES PERMITIDAS**
+
+### **Comandos Simples de Sistema:**
+```bash
+# ✅ Permitido - operações básicas de listagem
+ls -la && pwd
+```
+
+### **Pipes Informativos:**
+```bash
+# ✅ Permitido - processamento de saída imediata
+docker service ls | grep portal
+git log --oneline | head -5
+```
+
+## **IMPLEMENTAÇÃO PRÁTICA**
+
+### **Ao Receber Solicitação:**
+1. **Dividir** a tarefa em comandos individuais
+2. **Explicar** cada comando antes de executar
+3. **Executar** um comando por vez
+4. **Aguardar** e interpretar resultado
+5. **Prosseguir** para o próximo passo
+
+### **Linguagem a Usar:**
+- "Primeiro, vou verificar..."
+- "Agora vou executar..."
+- "O resultado mostra que..."
+- "Com base nisso, o próximo passo é..."
+- "Vou aguardar sua confirmação antes de prosseguir..."
+
+### **Quando Aguardar Confirmação:**
+- Antes de comandos que modificam arquivos importantes
+- Antes de fazer deploy para produção
+- Quando detectar algo inesperado
+- Se o usuário solicitou aprovação
+
+## **MEMORIZAÇÃO OBRIGATÓRIA**
+Esta metodologia deve ser aplicada em **100% das situações** que envolvem execução de comandos. É fundamental para manter transparência, controle e facilitar a resolução de problemas.
