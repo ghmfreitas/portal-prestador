@@ -1,8 +1,17 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
+  "/configuracoes/page": "app/configuracoes/page.js",
+  "/esqueci-senha/page": "app/esqueci-senha/page.js",
+  "/autenticacao/page": "app/autenticacao/page.js",
   "/doc-dev/page": "app/doc-dev/page.js",
+  "/material-apoio/page": "app/material-apoio/page.js",
+  "/notificacoes/page": "app/notificacoes/page.js",
+  "/material-apoio/modelo-termos-auditoria/page": "app/material-apoio/modelo-termos-auditoria/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/material-apoio/tabela-procedimentos/page": "app/material-apoio/tabela-procedimentos/page.js",
+  "/primeiro-acesso/page": "app/primeiro-acesso/page.js",
   "/solicitacoes-alteracao/page": "app/solicitacoes-alteracao/page.js",
-  "/solicitar/page": "app/solicitar/page.js",
-  "/configuracoes/page": "app/configuracoes/page.js"
+  "/termo-aceite/page": "app/termo-aceite/page.js",
+  "/page": "app/page.js",
+  "/solicitar/page": "app/solicitar/page.js"
 }

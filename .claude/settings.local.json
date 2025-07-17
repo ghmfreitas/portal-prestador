@@ -55,7 +55,13 @@
       "Bash(./scripts/dev-server.sh:*)",
       "Bash(git log:*)",
       "Bash(docker ps:*)",
-      "Bash(journalctl:*)"
+      "Bash(journalctl:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git push:*)",
+      "Bash(chmod:*)",
+      "Bash(git branch:*)",
+      "Bash(docker service:*)"
     ],
     "deny": []
   }
