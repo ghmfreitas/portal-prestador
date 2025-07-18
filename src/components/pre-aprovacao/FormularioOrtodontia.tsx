@@ -467,7 +467,8 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
     <div
       key={opcao.id}
       className={`
-        relative bg-white border-2 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:shadow-lg
+        relative bg-white border-2 rounded-xl px-4 py-4 cursor-pointer transition-all duration-300 hover:shadow-lg flex items-center justify-center
+        flex-1 min-w-[140px] max-w-[200px]
         ${valorSelecionado === opcao.id
           ? 'border-[#F05223] bg-[#F05223]/5 shadow-md transform scale-[1.02]'
           : 'border-[#EAE7EC] hover:border-[#F05223] hover:bg-[#F05223]/5'
@@ -475,18 +476,12 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
       `}
       onClick={() => onSelecionar(opcao.id)}
     >
-      
-      <div className="flex-1">
-        <h4 className={`
-          text-lg font-semibold transition-colors duration-300
-          ${valorSelecionado === opcao.id ? 'text-[#F05223]' : 'text-gray-900'}
-        `}>
-          {opcao.titulo}
-        </h4>
-        <p className="text-sm text-gray-600 mt-1">
-          {opcao.descricao}
-        </p>
-      </div>
+      <h4 className={`
+        text-base font-medium transition-colors duration-300 text-center whitespace-nowrap
+        ${valorSelecionado === opcao.id ? 'text-[#F05223]' : 'text-gray-900'}
+      `}>
+        {opcao.titulo}
+      </h4>
     </div>
   )
 
@@ -581,7 +576,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
             <Label className="text-sm font-medium text-gray-700">
               Selecione a fase do tratamento
             </Label>
-            <div className="grid grid-cols-1 gap-4 max-w-2xl">
+            <div className="flex flex-wrap gap-4 max-w-4xl">
               {fasesTratamento.map((fase) => 
                 renderCard(fase, dados.faseTratamento, handleSelecionarFase)
               )}
@@ -598,7 +593,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Classificação de Angle
                 </Label>
-                <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+                <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                   {classificacoesAngle.map((classificacao) => 
                     renderCard(classificacao, dados.classificacaoAngle, handleSelecionarClassificacao)
                   )}
@@ -610,7 +605,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Padrão facial
                 </Label>
-                <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+                <div className="flex flex-wrap gap-4 max-w-5xl mt-3">
                   {padroesFaciais.map((padrao) => 
                     renderCard(padrao, dados.padraoFacial || '', handleSelecionarPadraoFacial)
                   )}
@@ -634,7 +629,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Selecione a divisão da classe
                 </Label>
-                <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+                <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                   {divisoesClasseII.map((divisao) => 
                     renderCard(divisao, dados.classeIIDivisao || '', handleSelecionarDivisaoII)
                   )}
@@ -646,7 +641,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Escolha a subdivisão
                 </Label>
-                <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+                <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                   {subdivisoes.map((subdivisao) => 
                     renderCard(subdivisao, dados.classeIISubdivisao || '', handleSelecionarSubdivisaoII)
                   )}
@@ -668,7 +663,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Escolha a subdivisão
               </Label>
-              <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+              <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                 {subdivisoes.map((subdivisao) => 
                   renderCard(subdivisao, dados.classeIIISubdivisao || '', handleSelecionarSubdivisaoIII)
                 )}
@@ -686,7 +681,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Linha Média Coincidente
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.linhaMediaCoincidente || '', handleSelecionarLinhaMedia)
                   )}
@@ -698,7 +693,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Mordida Cruzada
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.mordidaCruzada || '', handleSelecionarMordida)
                   )}
@@ -722,7 +717,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Desvio superior
                 </Label>
-                <div className="grid grid-cols-3 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesDesvio.map((opcao) => 
                     renderCard(opcao, dados.desvioSuperior || '', handleSelecionarDesvioSuperior)
                   )}
@@ -734,7 +729,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Desvio inferior
                 </Label>
-                <div className="grid grid-cols-3 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesDesvio.map((opcao) => 
                     renderCard(opcao, dados.desvioInferior || '', handleSelecionarDesvioInferior)
                   )}
@@ -758,7 +753,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Cruzada anterior
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.cruzadaAnterior || '', handleSelecionarCruzadaAnterior)
                   )}
@@ -770,7 +765,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Cruzada posterior
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.cruzadaPosterior || '', handleSelecionarCruzadaPosterior)
                   )}
@@ -792,7 +787,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Selecione o tipo de mordida
               </Label>
-              <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+              <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                 {tiposMordidaCruzada.map((tipo) => 
                   renderCard(tipo, dados.tipoMordidaCruzada || '', handleSelecionarTipoMordidaCruzada)
                 )}
@@ -810,7 +805,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Trespasse horizontal (sobressaliência/overjet)
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesTrespasseHorizontal.map((opcao) => 
                     renderCard(opcao, dados.overjet || '', handleSelecionarOverjet)
                   )}
@@ -822,7 +817,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Trespasse vertical (sobremordida/overbite)
                 </Label>
-                <div className="grid grid-cols-3 gap-4 max-w-2xl mt-3">
+                <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                   {opcoesTrespasseVertical.map((opcao) => 
                     renderCard(opcao, dados.overbite || '', handleSelecionarOverbite)
                   )}
@@ -844,7 +839,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Assinale a medida do trespasse horizontal
               </Label>
-              <div className="grid grid-cols-2 desktop:grid-cols-3 gap-4 max-w-2xl mt-3">
+              <div className="flex flex-wrap gap-4 max-w-5xl mt-3">
                 {medidasTrespasse.map((medida) => 
                   renderCard(medida, dados.medidaOverjet || '', handleSelecionarMedidaOverjet)
                 )}
@@ -867,7 +862,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Assinale a medida do trespasse vertical
               </Label>
-              <div className="grid grid-cols-2 desktop:grid-cols-3 gap-4 max-w-2xl mt-3">
+              <div className="flex flex-wrap gap-4 max-w-5xl mt-3">
                 {medidasTrespasse.map((medida) => 
                   renderCard(medida, dados.medidaOverbite || '', handleSelecionarMedidaOverbite)
                 )}
@@ -885,7 +880,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Diastemas
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesPresencaAusencia.map((opcao) => 
                     renderCard(opcao, dados.diastemas || '', handleSelecionarDiastemas)
                   )}
@@ -897,7 +892,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Apinhamento
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesPresencaAusencia.map((opcao) => 
                     renderCard(opcao, dados.apinhamento || '', handleSelecionarApinhamento)
                   )}
@@ -909,7 +904,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Giroversões
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesPresencaAusencia.map((opcao) => 
                     renderCard(opcao, dados.giroversoes || '', handleSelecionarGiroversoes)
                   )}
@@ -976,7 +971,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Dor ou ruído articular
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.dorRuidoArticular || '', handleSelecionarDorRuido)
                   )}
@@ -988,7 +983,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Bruxismo
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.bruxismo || '', handleSelecionarBruxismo)
                   )}
@@ -1000,7 +995,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Apertamento
                 </Label>
-                <div className="grid grid-cols-2 gap-4 max-w-lg mt-3">
+                <div className="flex flex-wrap gap-3 max-w-lg mt-3">
                   {opcoesSimNao.map((opcao) => 
                     renderCard(opcao, dados.apertamento || '', handleSelecionarApertamento)
                   )}
@@ -1022,7 +1017,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
               <Label className="text-sm font-medium text-gray-700">
                 Selecione o lado da dor/ruído
               </Label>
-              <div className="grid grid-cols-1 gap-4 max-w-lg mt-3">
+              <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                 {ladosDor.map((lado) => 
                   renderCard(lado, dados.ladoDorRuido || '', handleSelecionarLadoDor)
                 )}
@@ -1040,7 +1035,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Respiração
                 </Label>
-                <div className="grid grid-cols-1 gap-4 max-w-2xl mt-3">
+                <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                   {tiposRespiracao.map((tipo) => 
                     renderCard(tipo, dados.respiracao || '', handleSelecionarRespiracao)
                   )}
@@ -1052,7 +1047,7 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
                 <Label className="text-sm font-medium text-gray-700">
                   Doença Periodontal
                 </Label>
-                <div className="grid grid-cols-2 desktop:grid-cols-4 gap-4 mt-3">
+                <div className="flex flex-wrap gap-4 max-w-4xl mt-3">
                   {grausDoencaPeriodontal.map((grau) => 
                     renderCard(grau, dados.doencaPeriodontal || '', handleSelecionarDoencaPeriodontal)
                   )}
