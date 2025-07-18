@@ -2,20 +2,32 @@ version: '3.8'
 
 services:
   portal-prestador:
-    image: node:20-alpine
+    image: portal-prestador:v2
     working_dir: /app
-    command: npm start
     volumes:
-      - .:/app
+      - ../.env.local:/app/.env.local:ro
+      - ../public/images:/app/public/images:ro
     networks:
       - mnhNet
     deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+      restart_policy:
+        condition: any
+        delay: 5s
       labels:
         - "traefik.enable=true"
         - "traefik.http.services.portal-prestador.loadbalancer.server.port=3000"
         - "traefik.http.routers.portal-prestador.rule=Host(`odonto.mnd-system.cloud`)"
         - "traefik.http.routers.portal-prestador.entrypoints=web,websecure"
         - "traefik.http.routers.portal-prestador.tls=true"
+        - "traefik.http.routers.portal-prestador.tls.certresolver=letsencrypt"
         - "traefik.docker.network=mnhNet"
     environment:
       - NODE_ENV=production
