@@ -15,6 +15,7 @@ import { WarningCircle, CheckCircle, House, FileText, Clock, Receipt, BookOpen, 
 import { useProcedimentos, type Procedimento } from '@/hooks/useProcedimentos'
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import FormularioOrtodontia, { FormularioOrtodontiaRef } from "@/components/pre-aprovacao/FormularioOrtodontia"
+import { ConfirmacaoSaida } from "@/components/ConfirmacaoSaida"
 
 interface User {
   id: string
@@ -145,6 +146,9 @@ export default function SolicitarPage() {
   const [etapaFormularioOrtodontia, setEtapaFormularioOrtodontia] = useState(1)
   const [podeAvancarOrtodontia, setPodeAvancarOrtodontia] = useState(false)
   const formularioOrtodontiaRef = useRef<FormularioOrtodontiaRef>(null)
+  
+  // Estado para controlar modal de confirmação de saída
+  const [mostrarConfirmacaoSaida, setMostrarConfirmacaoSaida] = useState(false)
   const [dadosOrtodontia, setDadosOrtodontia] = useState({
     faseTratamento: '',
     classificacaoAngle: '',
@@ -246,6 +250,13 @@ export default function SolicitarPage() {
 
   // Handler para voltar step
   const handleVoltarStep = () => {
+    // Se estiver no formulário de ortodontia, mostrar modal de confirmação
+    if (mostrarFormularioOrtodontia) {
+      handleVoltarOrtodontia()
+      return
+    }
+    
+    // Navegação normal entre steps
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1)
     }
@@ -565,6 +576,11 @@ export default function SolicitarPage() {
   }
   
   const handleVoltarOrtodontia = () => {
+    // Mostrar modal de confirmação antes de sair do formulário de ortodontia
+    setMostrarConfirmacaoSaida(true)
+  }
+  
+  const confirmarSaidaOrtodontia = () => {
     setMostrarFormularioOrtodontia(false)
     setProcedimentoSelecionado(null)
     setProcedimentoBusca('') // Limpar campo de busca
@@ -583,6 +599,7 @@ export default function SolicitarPage() {
     setShowDropdown(false) // Fechar dropdown
     setPodeAvancarOrtodontia(false)
     setEtapaFormularioOrtodontia(1)
+    setMostrarConfirmacaoSaida(false) // Fechar modal
   }
 
   // Callback para receber atualizações do formulário de ortodontia
@@ -1765,6 +1782,33 @@ export default function SolicitarPage() {
         </div>
       </main>
       <Footer />
+      
+      {/* Modal de Confirmação de Saída do Formulário de Ortodontia */}
+      {mostrarConfirmacaoSaida && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/50" onClick={() => setMostrarConfirmacaoSaida(false)} />
+          <div className="relative bg-white p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold mb-4">Sair do formulário de ortodontia</h3>
+            <p className="text-gray-600 mb-6">
+              Deseja sair do formulário de ortodontia? Os dados preenchidos serão perdidos.
+            </p>
+            <div className="flex gap-3 justify-end">
+              <button
+                onClick={() => setMostrarConfirmacaoSaida(false)}
+                className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={confirmarSaidaOrtodontia}
+                className="px-4 py-2 bg-[#F05223] text-white rounded-lg hover:bg-[#D94820]"
+              >
+                Sair do formulário
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

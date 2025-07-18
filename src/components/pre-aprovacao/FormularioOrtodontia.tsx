@@ -1058,16 +1058,16 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
         )}
       </div>
 
-      {/* Link de Voltar - só mostra a partir da etapa 2 */}
+      {/* Navegação interna do formulário - só mostra a partir da etapa 2 */}
       {etapaAtual > 1 && (
-        <div className="mt-4">
+        <div className="mt-6 pt-4 border-t border-gray-100">
           <button 
             type="button"
             onClick={etapaAnterior}
-            className="text-sm text-gray-600 hover:text-[#F05223] transition-colors flex items-center gap-2"
+            className="text-sm text-[#F05223] hover:text-[#D94820] transition-colors flex items-center gap-2 font-medium"
           >
             <ArrowLeft className="h-4 w-4" />
-            Etapa anterior
+            Etapa anterior do formulário
           </button>
         </div>
       )}
