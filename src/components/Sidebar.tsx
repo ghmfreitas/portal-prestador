@@ -1,6 +1,6 @@
 'use client'
 
-import { House, FileText, Clock, Receipt, BookOpen, Code } from 'phosphor-react'
+import { House, FileText, Clock, Receipt, BookOpen } from 'phosphor-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -19,7 +19,7 @@ const menuItems = [
   },
   {
     id: 'historico',
-    label: 'Histórico',
+    label: 'Acompanhar',
     icon: Clock,
     href: '/historico'
   },
@@ -34,12 +34,6 @@ const menuItems = [
     label: 'Material de apoio',
     icon: BookOpen,
     href: '/material-apoio'
-  },
-  {
-    id: 'doc-dev',
-    label: 'Doc Desenvolvimento',
-    icon: Code,
-    href: '/doc-dev'
   }
 ]
 
