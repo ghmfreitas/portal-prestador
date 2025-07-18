@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { 
   Bell, 
   MagnifyingGlass, 
@@ -23,9 +25,12 @@ import {
   ChartBar,
   ArrowSquareOut,
   X,
-  ArrowsClockwise
+  ArrowsClockwise,
+  House,
+  Clock,
+  Receipt,
+  BookOpen
 } from 'phosphor-react'
-import Link from 'next/link'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
 import Footer from '@/components/Footer'
@@ -37,6 +42,53 @@ import {
   notificationCategoryColors,
   Notification
 } from '@/types/notifications'
+
+interface User {
+  id: string
+  nome: string
+  email: string
+  cpf_cnpj: string
+  codigo_identificacao: string
+  tipo_documento: 'CPF' | 'CNPJ' | null
+}
+
+const mobileMenuItems = [
+  { id: 'home', label: 'Painel', icon: House, href: '/dashboard' },
+  { id: 'solicitar', label: 'Solicitar', icon: FileText, href: '/solicitar' },
+  { id: 'historico', label: 'Histórico', icon: Clock, href: '/historico' },
+  { id: 'faturamento', label: 'Faturamento', icon: Receipt, href: '/faturamento' },
+  { id: 'material-apoio', label: 'Material', icon: BookOpen, href: '/material-apoio' },
+  { id: 'notificacoes', label: 'Notificações', icon: Bell, href: '/notificacoes' }
+]
+
+// Componente checkbox personalizado com estilo do DS
+const DSCheckbox = ({ checked, onCheckedChange }: { checked: boolean; onCheckedChange: () => void }) => (
+  <div 
+    className="relative h-7 w-7 cursor-pointer"
+    onClick={onCheckedChange}
+  >
+    <input
+      type="checkbox"
+      checked={checked}
+      onChange={() => {}}
+      className="sr-only"
+    />
+    <div className={`
+      h-7 w-7 rounded-sm border-2 flex items-center justify-center transition-all
+      ${checked 
+        ? 'bg-[#F05223] border-[#F05223] text-white' 
+        : 'bg-white border-gray-300 hover:border-[#F05223]'
+      }
+      focus-within:ring-2 focus-within:ring-[#F05223] focus-within:ring-offset-2
+    `}>
+      {checked && (
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 16.2l-3.5-3.5c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l4.19 4.19c.39.39 1.02.39 1.41 0L20.3 7.7c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L9 16.2z"/>
+        </svg>
+      )}
+    </div>
+  </div>
+)
 
 const categoryIcons = {
   comunicados: ChatCircle,
@@ -57,17 +109,9 @@ const formatTimeAgo = (date: Date) => {
   return `${Math.floor(diffInSeconds / 604800)}sem atrás`
 }
 
-interface User {
-  id: string
-  nome: string
-  email: string
-  cpf_cnpj: string
-  codigo_identificacao: string
-  tipo_documento: 'CPF' | 'CNPJ' | null
-}
-
 export default function NotificationsPage() {
   const router = useRouter()
+  const pathname = usePathname()
   const [user, setUser] = useState<User | null>(null)
   const {
     notifications,
@@ -184,11 +228,9 @@ export default function NotificationsPage() {
         <div className="p-6">
           <div className="flex items-start space-x-4">
             <div className="flex items-center">
-              <input
-                type="checkbox"
+              <DSCheckbox
                 checked={isSelected}
-                onChange={() => toggleNotificationSelection(notification.id)}
-                className="h-4 w-4 text-[#F05223] focus:ring-[#1355B4] border-gray-300 rounded"
+                onCheckedChange={() => toggleNotificationSelection(notification.id)}
               />
             </div>
             
@@ -310,10 +352,27 @@ export default function NotificationsPage() {
       {/* Mobile Navigation */}
       <nav className="bg-white border-b border-gray-200 p-2 desktop:hidden col-span-full">
         <div className="flex space-x-1 overflow-x-auto">
-          <Link href="/dashboard" className="flex flex-col items-center min-w-0 px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-50">
-            <Bell className="h-4 w-4" />
-            <span className="text-xs mt-1">Notificações</span>
-          </Link>
+          {mobileMenuItems.map((item) => {
+            const isActive = pathname === item.href
+            const Icon = item.icon
+            
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`
+                  flex flex-col items-center min-w-0 px-3 py-2 rounded-lg transition-all
+                  ${isActive 
+                    ? 'bg-orange-50 text-[#F05223]' 
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  }
+                `}
+              >
+                <Icon className={`h-4 w-4 ${isActive ? 'text-[#F05223]' : 'text-gray-500'}`} />
+                <span className="text-xs mt-1 truncate">{item.label}</span>
+              </Link>
+            )
+          })}
         </div>
       </nav>
       
@@ -323,7 +382,7 @@ export default function NotificationsPage() {
         <div className="max-w-7xl mx-auto">
           {/* Header da página */}
           <div className="mb-8">
-            <h4 className="text-lg font-medium text-[#F05223] mb-1">Home</h4>
+            <h4 className="text-lg font-medium text-[#F05223] mb-1">Painel de Controle</h4>
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-gray-900">Notificações</h1>
