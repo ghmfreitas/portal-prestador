@@ -281,9 +281,9 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
 
   // Navegação entre etapas
   const proximaEtapa = () => {
-    if (etapaAtual === 1 && dados.faseTratamento) {
+    if (etapaAtual === 1 && !!dados.faseTratamento) {
       setEtapaAtual(2)
-    } else if (etapaAtual === 2 && dados.classificacaoAngle && dados.padraoFacial) {
+    } else if (etapaAtual === 2 && !!dados.classificacaoAngle && !!dados.padraoFacial) {
       if (dados.classificacaoAngle === 'classe_i') {
         setEtapaAtual(3)
       } else if (dados.classificacaoAngle === 'classe_ii') {
@@ -291,11 +291,11 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
       } else if (dados.classificacaoAngle === 'classe_iii') {
         setEtapaAtual(2.2)
       }
-    } else if (etapaAtual === 2.1 && dados.classeIIDivisao && dados.classeIISubdivisao) {
+    } else if (etapaAtual === 2.1 && !!dados.classeIIDivisao && !!dados.classeIISubdivisao) {
       setEtapaAtual(3)
-    } else if (etapaAtual === 2.2 && dados.classeIIISubdivisao) {
+    } else if (etapaAtual === 2.2 && !!dados.classeIIISubdivisao) {
       setEtapaAtual(3)
-    } else if (etapaAtual === 3 && dados.linhaMediaCoincidente && dados.mordidaCruzada) {
+    } else if (etapaAtual === 3 && !!dados.linhaMediaCoincidente && !!dados.mordidaCruzada) {
       // Verifica se precisa de sub-etapas
       if (dados.linhaMediaCoincidente === 'nao' && (!dados.desvioSuperior || !dados.desvioInferior)) {
         setEtapaAtual(3.1)
@@ -304,21 +304,21 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
       } else {
         setEtapaAtual(4)
       }
-    } else if (etapaAtual === 3.1 && dados.desvioSuperior && dados.desvioInferior) {
+    } else if (etapaAtual === 3.1 && !!dados.desvioSuperior && !!dados.desvioInferior) {
       if (dados.mordidaCruzada === 'sim' && (!dados.cruzadaAnterior || !dados.cruzadaPosterior)) {
         setEtapaAtual(3.2)
       } else {
         setEtapaAtual(4)
       }
-    } else if (etapaAtual === 3.2 && dados.cruzadaAnterior && dados.cruzadaPosterior) {
+    } else if (etapaAtual === 3.2 && !!dados.cruzadaAnterior && !!dados.cruzadaPosterior) {
       if (dados.cruzadaPosterior === 'sim' && !dados.tipoMordidaCruzada) {
         setEtapaAtual(3.21)
       } else {
         setEtapaAtual(4)
       }
-    } else if (etapaAtual === 3.21 && dados.tipoMordidaCruzada) {
+    } else if (etapaAtual === 3.21 && !!dados.tipoMordidaCruzada) {
       setEtapaAtual(4)
-    } else if (etapaAtual === 4 && dados.overjet && dados.overbite) {
+    } else if (etapaAtual === 4 && !!dados.overjet && !!dados.overbite) {
       // Verifica se precisa de sub-etapas para medidas
       if (dados.overjet === 'inadequado' && !dados.medidaOverjet) {
         setEtapaAtual(4.1)
@@ -327,15 +327,15 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
       } else {
         setEtapaAtual(5)
       }
-    } else if (etapaAtual === 4.1 && dados.medidaOverjet) {
+    } else if (etapaAtual === 4.1 && !!dados.medidaOverjet) {
       if ((dados.overbite === 'mordida_aberta' || dados.overbite === 'sobremordida') && !dados.medidaOverbite) {
         setEtapaAtual(4.2)
       } else {
         setEtapaAtual(5)
       }
-    } else if (etapaAtual === 4.2 && dados.medidaOverbite) {
+    } else if (etapaAtual === 4.2 && !!dados.medidaOverbite) {
       setEtapaAtual(5)
-    } else if (etapaAtual === 5 && dados.diastemas && dados.apinhamento && dados.giroversoes) {
+    } else if (etapaAtual === 5 && !!dados.diastemas && !!dados.apinhamento && !!dados.giroversoes) {
       // Se algum item for "presentes" e não tiver seleção de dentes, vai para sub-etapa
       if (dados.diastemas === 'presentes' && (!dados.dentesDiastemas || dados.dentesDiastemas.length === 0)) {
         setEtapaAtual(5.1)
@@ -362,15 +362,15 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
       }
     } else if (etapaAtual === 5.3 && dados.dentesGiroversoes && dados.dentesGiroversoes.length > 0) {
       setEtapaAtual(6)
-    } else if (etapaAtual === 6 && dados.dorRuidoArticular && dados.bruxismo && dados.apertamento) {
+    } else if (etapaAtual === 6 && !!dados.dorRuidoArticular && !!dados.bruxismo && !!dados.apertamento) {
       if (dados.dorRuidoArticular === 'sim' && !dados.ladoDorRuido) {
         setEtapaAtual(6.1)
       } else {
         setEtapaAtual(7)
       }
-    } else if (etapaAtual === 6.1 && dados.ladoDorRuido) {
+    } else if (etapaAtual === 6.1 && !!dados.ladoDorRuido) {
       setEtapaAtual(7)
-    } else if (etapaAtual === 7 && dados.respiracao && dados.doencaPeriodontal) {
+    } else if (etapaAtual === 7 && !!dados.respiracao && !!dados.doencaPeriodontal) {
       onContinuar(dados)
     }
   }
@@ -487,24 +487,24 @@ const FormularioOrtodontia = forwardRef<FormularioOrtodontiaRef, FormularioOrtod
 
   // Função para verificar se pode continuar
   const podeContinuar = () => {
-    if (etapaAtual === 1) return dados.faseTratamento !== ''
-    if (etapaAtual === 2) return dados.classificacaoAngle !== '' && dados.padraoFacial !== ''
-    if (etapaAtual === 2.1) return dados.classeIIDivisao !== '' && dados.classeIISubdivisao !== ''
-    if (etapaAtual === 2.2) return dados.classeIIISubdivisao !== ''
-    if (etapaAtual === 3) return dados.linhaMediaCoincidente !== '' && dados.mordidaCruzada !== ''
-    if (etapaAtual === 3.1) return dados.desvioSuperior !== '' && dados.desvioInferior !== ''
-    if (etapaAtual === 3.2) return dados.cruzadaAnterior !== '' && dados.cruzadaPosterior !== ''
-    if (etapaAtual === 3.21) return dados.tipoMordidaCruzada !== ''
-    if (etapaAtual === 4) return dados.overjet !== '' && dados.overbite !== ''
-    if (etapaAtual === 4.1) return dados.medidaOverjet !== ''
-    if (etapaAtual === 4.2) return dados.medidaOverbite !== ''
-    if (etapaAtual === 5) return dados.diastemas !== '' && dados.apinhamento !== '' && dados.giroversoes !== ''
+    if (etapaAtual === 1) return !!dados.faseTratamento
+    if (etapaAtual === 2) return !!dados.classificacaoAngle && !!dados.padraoFacial
+    if (etapaAtual === 2.1) return !!dados.classeIIDivisao && !!dados.classeIISubdivisao
+    if (etapaAtual === 2.2) return !!dados.classeIIISubdivisao
+    if (etapaAtual === 3) return !!dados.linhaMediaCoincidente && !!dados.mordidaCruzada
+    if (etapaAtual === 3.1) return !!dados.desvioSuperior && !!dados.desvioInferior
+    if (etapaAtual === 3.2) return !!dados.cruzadaAnterior && !!dados.cruzadaPosterior
+    if (etapaAtual === 3.21) return !!dados.tipoMordidaCruzada
+    if (etapaAtual === 4) return !!dados.overjet && !!dados.overbite
+    if (etapaAtual === 4.1) return !!dados.medidaOverjet
+    if (etapaAtual === 4.2) return !!dados.medidaOverbite
+    if (etapaAtual === 5) return !!dados.diastemas && !!dados.apinhamento && !!dados.giroversoes
     if (etapaAtual === 5.1) return !!(dados.dentesDiastemas && dados.dentesDiastemas.length > 0)
     if (etapaAtual === 5.2) return !!(dados.dentesApinhamento && dados.dentesApinhamento.length > 0)
     if (etapaAtual === 5.3) return !!(dados.dentesGiroversoes && dados.dentesGiroversoes.length > 0)
-    if (etapaAtual === 6) return dados.dorRuidoArticular !== '' && dados.bruxismo !== '' && dados.apertamento !== ''
-    if (etapaAtual === 6.1) return dados.ladoDorRuido !== ''
-    if (etapaAtual === 7) return dados.respiracao !== '' && dados.doencaPeriodontal !== ''
+    if (etapaAtual === 6) return !!dados.dorRuidoArticular && !!dados.bruxismo && !!dados.apertamento
+    if (etapaAtual === 6.1) return !!dados.ladoDorRuido
+    if (etapaAtual === 7) return !!dados.respiracao && !!dados.doencaPeriodontal
     return false
   }
 
