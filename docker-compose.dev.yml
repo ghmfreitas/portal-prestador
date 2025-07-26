@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  portal-dev:
+    image: node:18-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - WATCHPACK_POLLING=true
+    networks:
+      - mnhNet
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.portal-dev.loadbalancer.server.port=3000"
+      - "traefik.http.routers.portal-dev.rule=Host(`dev.odonto.mnd-system.cloud`)"
+      - "traefik.http.routers.portal-dev.entrypoints=web,websecure"
+      - "traefik.http.routers.portal-dev.tls=true"
+      - "traefik.http.routers.portal-dev.tls.certresolver=letsencrypt"
+      - "traefik.docker.network=mnhNet"
+
+networks:
+  mnhNet:
+    external: true

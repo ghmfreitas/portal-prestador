@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Session Storage</title>
+</head>
+<body>
+    <h1>Session Storage Test</h1>
+    <div id="output"></div>
+    
+    <script>
+        const output = document.getElementById('output');
+        
+        // Check if user exists in sessionStorage
+        const userData = sessionStorage.getItem('user');
+        
+        if (userData) {
+            output.innerHTML = '<h2>User found in session:</h2><pre>' + userData + '</pre>';
+        } else {
+            output.innerHTML = '<h2>No user in session!</h2>';
+            
+            // Create a test user
+            const testUser = {
+                id: "test-123",
+                nome: "Test User",
+                email: "test@example.com",
+                cpf_cnpj: "12345678900",
+                codigo_identificacao: "TEST001",
+                tipo_documento: "CPF"
+            };
+            
+            sessionStorage.setItem('user', JSON.stringify(testUser));
+            output.innerHTML += '<p>Test user created! Refresh the page to see it.</p>';
+        }
+        
+        // Also show all sessionStorage keys
+        output.innerHTML += '<h3>All sessionStorage keys:</h3><ul>';
+        for (let i = 0; i < sessionStorage.length; i++) {
+            const key = sessionStorage.key(i);
+            output.innerHTML += '<li>' + key + '</li>';
+        }
+        output.innerHTML += '</ul>';
+    </script>
+</body>
+</html>
